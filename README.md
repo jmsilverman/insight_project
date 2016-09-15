@@ -1,4 +1,4 @@
-# Files for WhereSIOUS
+# Files for WhereSIOUS (Where Should I Open Up Shop)
 
 ## My WhereSIOUS project for the City of San Diego while a Insight DS
    Fellow in Fall 2016

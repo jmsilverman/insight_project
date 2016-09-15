@@ -10,3 +10,7 @@ proj_notes
 
 # flask tutorial example
 flask_example/
+
+
+# ipynb checkpoints
+.ipynb checkpoints/

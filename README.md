@@ -5,7 +5,21 @@
 Predicts future business success for a given location in San Diego
 based on information about that location.
 
-### Jupyter Notebooks
+### Presentations (presentations/)
+
+* various presentations for the project (PowerPoint and PDFs)
+
+
+### WhereSIOUS Website via Flask (wheresious/)
+
+* templates/ - folder of HTML webpages
+* static/ - folder of stylesheets, images, icons, and data to be
+  served to website
+* also contains some external Python scripts
+* run.py in the main folder above this one also helps run the Flask-based website
+
+
+### Jupyter Notebooks (*.ipynb)
 
 * build_features_labels.ipynb - reads in cleaned data and labels and
 combines important info into CSV files

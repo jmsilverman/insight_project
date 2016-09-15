@@ -1,5 +1,12 @@
 # Jupyter Notebooks for WhereSIOUS project
 
+## My WhereSIOUS project for the City of San Diego while a Insight DS  Fellow
+
+Predicts future business success for a given location in San Diego
+based on information about that location.
+
+### Jupyter Notebooks
+
 * build_features_labels.ipynb - reads in cleaned data and labels and
 combines important info into CSV files
 * business_listings.ipynb - read in current SD businesses and mess

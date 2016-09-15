@@ -1,0 +1,68 @@
+body {
+    background-image: url("sd_panorama_pixabay.jpg");
+    background-size: 105%;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+#inputs
+{
+    position: relative;
+    margin-left: 10px;
+    padding-left: 5px;
+    padding-top: 5px;
+    width: 47%;
+    float: left;
+    clear: none;
+    font-size: 25px;
+    color: white;
+}
+#inputs a:link {
+    color: silver;
+    text-decoration: underline;
+}
+#inputs a:visited {
+    color: silver;
+    text-decoration: underline;
+}
+#inputs a:hover {
+    color: skyblue;
+    text-decoration: underline;
+}
+#results
+{
+    position: relative;
+    margin-left: 10px;
+    padding-left: 5px;
+    padding-top: 5px;
+    width: 47%;
+    float: left;
+    clear: none;
+    font-size: 25px;
+    color: white;
+}
+#results a:link {
+    color: silver;
+    text-decoration: underline;
+}
+#results a:visited {
+    color: silver;
+    text-decoration: underline;
+}
+#results a:hover {
+    color: skyblue;
+    text-decoration: underline;
+}
+#map {
+    width: 100%;
+    height: 430px;
+}
+#map_container
+{
+    position: relative;
+    margin-right: 10px;
+    padding-right: 5px;
+    padding-top: 5px;
+    width: 47%;
+    float: right;
+    clear: none;
+}

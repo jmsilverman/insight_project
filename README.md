@@ -1,6 +1,7 @@
-# Jupyter Notebooks for WhereSIOUS project
+# Files for WhereSIOUS
 
-## My WhereSIOUS project for the City of San Diego while a Insight DS  Fellow
+## My WhereSIOUS project for the City of San Diego while a Insight DS
+   Fellow in Fall 2016
 
 Predicts future business success for a given location in San Diego
 based on information about that location.

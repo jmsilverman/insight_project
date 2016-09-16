@@ -34,11 +34,22 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <script>
+    var score = '{{score}}';
+    var address = '{{address}}';
+    function checkScore() {
+      if (score < 0) {
+        alert("Sorry, I can't find the census tract for address " + address);
+      }
+    }
+    </script>
+
   </head>
 
 
 
-  <body onload="initialize();codeAddress()">
+  <body onload="checkScore()">
 
     <!-- Header stuff -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -79,15 +90,17 @@
 
     <!-- Resulting Text & Numbers -->
     <div id="results">
-        <h1>Address: {{address}}</h1>
-	<h1>Business: {{naics_code_simple}}</h1>
-      	<h1>Score: {{score}}</h1>
+      <div style="height:60px;"></div>
+      <h2>There WhereSIOUS score for</h2>
+      <h2 style="color:silver">{{address}}</h2>
+      <h2>is</h2>
+      <h2 style="color:silver">{{score}} (out of 100).</h2>
     </div><!-- /.container -->
 
-
+    
 
     <!-- Google map -->
-    <div id="map_container">
+    <div id="map_container2">
       <div id="map"></div>
       <script>
         var map;
@@ -114,13 +127,13 @@
         }
       </script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrLytmccXVaAmXCQFXVUOyHVPzREMxpFY&callback=mapAddress" async defer></script>
-    </div>
+      </div>
 
 
     
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="static/js/bootstrap.min.js"></script>
-
+    
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -130,5 +143,6 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
     <script src="static/js/bootstrap.min.js"></script>
+
   </body>
 </html>

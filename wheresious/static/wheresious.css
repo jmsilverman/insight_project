@@ -34,7 +34,7 @@ body {
     margin-left: 10px;
     padding-left: 5px;
     padding-top: 5px;
-    width: 47%;
+    width: 17%;
     float: left;
     clear: none;
     font-size: 25px;
@@ -63,6 +63,16 @@ body {
     padding-right: 5px;
     padding-top: 5px;
     width: 47%;
+    float: right;
+    clear: none;
+}
+#map_container2
+{
+    position: relative;
+    margin-right: 10px;
+    padding-right: 5px;
+    padding-top: 5px;
+    width: 77%;
     float: right;
     clear: none;
 }

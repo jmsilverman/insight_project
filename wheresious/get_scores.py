@@ -3,6 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy_utils import database_exists, create_database
 import pandas as pd
 import psycopg2
+import os.path
 
 # fire up the US Census Geocode
 from censusgeocode import CensusGeocode
@@ -40,7 +41,7 @@ def one_score(address,naics_code_simple):
             address_info = cg.onelineaddress(address)
             break
         except:
-            if n_attempts >= 5:
+            if n_attempts >= 1:
                 break
 
     # if no result found, try again with city and state appended, at most 5 times
@@ -52,43 +53,26 @@ def one_score(address,naics_code_simple):
                 address_info = cg.onelineaddress(address+', '+city_state)
                 break
             except:
-                if n_attempts >= 5:
+                if n_attempts >= 1:
                     break
 
     # see if we got a result
-    if len(address_info) != 0:
+    try:
         # get census tract
-        try:
-            tract = str(address_info[0]['geographies']['Census Tracts'][0]['TRACT'])
-        except:
-            tract = '-1'
-    else:
-        tract = '-1'
+        tract = str(address_info[0]['geographies']['Census Tracts'][0]['TRACT'])
 
-    # read-in business scores for all census tracts
-    scores = pd.read_csv('~/insight/project/wheresious/static/sd_active_businesses.csv')
-    
-    # find score for input census tract (possibly use business code as well)
-    return tract
+        # read-in business scores for all census tracts
+        filename = '/Users/jsilverman/insight/project/wheresious/static/tracts_scores_'+str(naics_code_simple)+'.csv'
+        if os.path.isfile(filename):        
+            tracts_scores = pd.read_csv(filename,sep=' ',names=['tracts','scores'])
+        else:
+            tracts_scores = pd.read_csv('/Users/jsilverman/insight/project/wheresious/static/tracts_scores.csv',sep=' ',names=['tracts','scores'])
 
-    # convert address to upper case
-    address_upper = address.upper()
+        # find score for input census tract (possibly use business code as well)
+        return float(tracts_scores[tracts_scores.tracts==300].scores.to_string(index=False))
 
-    
-    # strip whitespace from input addresses
-    #scores.address_str = scores.address_str.map(lambda x: x.strip())
-    # find the business name for the input address
-    #score = scores.loc[scores.address_str==address_upper].doing_bus_as_name.to_string(index=False)
-    
-    # query sd_businesses database
-    query = "SELECT doing_bus_as_name FROM sd_active_businesses WHERE address_str='%s '" % address_upper
-    query_results = pd.read_sql_query(query,con)
-    # save address
-    if len(query_results) > 0:
-        score = query_results.iloc[0]['doing_bus_as_name']
-    else:
-        score = "Address not found"
-    return score
+    except:
+        return -9
 
 
 

@@ -14,3 +14,7 @@ flask_example/
 
 # ipynb checkpoints
 .ipynb_checkpoints/
+
+
+# pyc files
+*.pyc

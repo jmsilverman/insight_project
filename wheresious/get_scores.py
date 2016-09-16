@@ -1,21 +1,10 @@
 # initial imports
-from sqlalchemy import create_engine
-from sqlalchemy_utils import database_exists, create_database
 import pandas as pd
-import psycopg2
 import os.path
 
 # fire up the US Census Geocode
 from censusgeocode import CensusGeocode
 cg = CensusGeocode()
-
-# fire up the PostgreSQL DB
-user = 'jsilverman'
-host = 'localhost'
-dbname = 'wheresious'
-db = create_engine('postgres://%s%s/%s'%(user,host,dbname))
-con = None
-con = psycopg2.connect(database = dbname, user = user)
 
 # initialize current city and state
 city_state = 'San Diego, CA'
@@ -59,20 +48,20 @@ def one_score(address,naics_code_simple):
     # see if we got a result
     try:
         # get census tract
-        tract = str(address_info[0]['geographies']['Census Tracts'][0]['TRACT'])
+        tract = float(address_info[0]['geographies']['Census Tracts'][0]['TRACT'])
 
         # read-in business scores for all census tracts
         filename = '/Users/jsilverman/insight/project/wheresious/static/tracts_scores_'+str(naics_code_simple)+'.csv'
         if os.path.isfile(filename):        
             tracts_scores = pd.read_csv(filename,sep=' ',names=['tracts','scores'])
         else:
-            tracts_scores = pd.read_csv('/Users/jsilverman/insight/project/wheresious/static/tracts_scores.csv',sep=' ',names=['tracts','scores'])
+            tracts_scores = pd.read_csv('/Users/jsilverman/insight/project/wheresious/static/tracts_scores_all.csv',sep=' ',names=['tracts','scores'])
 
         # find score for input census tract (possibly use business code as well)
-        return float(tracts_scores[tracts_scores.tracts==300].scores.to_string(index=False))
+        return float(tracts_scores[tracts_scores.tracts==tract].scores.to_string(index=False))
 
     except:
-        return -9
+        return -1
 
 
 

@@ -80,7 +80,7 @@
       <br>
       <form method="GET">
         <b>Check This Address:</b><br>
-        <input type="text" id="address" style="width:650px;color:black" name="address" placeholder="100 Park Blvd, San Diego">
+        <input type="text" id="address" style="width:650px;color:black" name="address" placeholder="2920 Zoo Dr, San Diego">
 	<button type="submit" formaction="one_address" class="btn btn-default btn-lg">Go!</button>
 
 	<br><br><br>
@@ -90,6 +90,7 @@
         <b>Highest Level Business (<a
         href="http://www.census.gov/cgi-bin/sssd/naics/naicsrch?chart=2012" target="_blank">NAICS</a>) Code (<i>optional</i>):</b><br>
         <select id="code" name="naics_code_simple">
+	  <option value=all>All Business Types</option>
 	  <option value=11>11 - Agriculture, Forestry, Fishing and Hunting</option>
 	  <option value=21>21 - Mining, Quarrying, and Oil and Gas Extraction</option>
 	  <option value=22>22 - Utilities</option>

@@ -38,18 +38,26 @@
     <script>
     var score = '{{score}}';
     var address = '{{address}}';
+    var code_used = '{{code_used}}';
     function checkScore() {
       if (score < 0) {
         alert("Sorry, I can't find the census tract for address " + address);
       }
     }
+    function codeUsedCheck() {
+      if (code_used === true) {
+        document.getElementById('ifCodeUsed').style.visibility = 'visible';
+        alert('true '+code_used);
+      } else {
+        document.getElementById('ifCodeUsed').style.visibility = 'hidden';
+        alert('false '+code_used);
+      }
     </script>
-
   </head>
 
 
 
-  <body onload="checkScore()">
+  <body onload="checkScore();codeUsedCheck();">
 
     <!-- Header stuff -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -90,11 +98,12 @@
 
     <!-- Resulting Text & Numbers -->
     <div id="results">
-      <div style="height:60px;"></div>
       <h2>The WhereSIOUS score for</h2>
       <h2 style="color:silver">{{address}}</h2>
-      <h2>is</h2>
-      <h2 style="color:silver">{{score}} (out of 100).</h2>
+      <!-- <div id="ifCodeUsed" style="visibility:hidden">
+	<h2>with Highest Level Business (NAICS) Code <span style="color:silver">{{naics_code_simple}}</span></h2>
+      </div> -->
+      <h2>is <span style="color:silver">{{score}}</span> (out of 100).</h2>
     </div><!-- /.container -->
 
     
@@ -127,7 +136,7 @@
         }
       </script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrLytmccXVaAmXCQFXVUOyHVPzREMxpFY&callback=mapAddress" async defer></script>
-      </div>
+    </div>
 
 
     

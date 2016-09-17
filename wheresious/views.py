@@ -4,6 +4,8 @@ from flask import request
 from wheresious import app
 from get_scores import one_score
 from get_scores import all_scores
+import os.path
+
 
 
 # define homepage ('/' and index.html)
@@ -40,8 +42,15 @@ def single_lookup():
     # get score from external file
     score = one_score(address,naics_code_simple)
 
+    # see if NAICS code-specific scores exist
+    filename = '/Users/jsilverman/insight/project/wheresious/static/tracts_scores_'+str(naics_code_simple)+'.csv'
+    if os.path.isfile(filename):
+        code_used = True
+    else:
+        code_used = False
+            
     # render page
-    return render_template("one_address.html", address = address, naics_code_simple = naics_code_simple, score = score)
+    return render_template("one_address.html", address = address, naics_code_simple = naics_code_simple, score = score, code_used = code_used)
 
 
 

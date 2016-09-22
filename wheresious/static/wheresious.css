@@ -1,78 +1,83 @@
 body {
-    background-image: url("sd_panorama_pixabay.jpg");
+    background-image: url("water_background.jpg");
     background-size: 105%;
-    background-repeat: no-repeat;
     text-align: center;
 }
-#inputs
+.heading {
+   position: absolute; 
+   top: 60px; 
+   left: 0; 
+   width: 100%; 
+}
+.inputs
 {
     position: relative;
-    margin-left: 10px;
-    padding-left: 5px;
-    padding-top: 5px;
-    width: 47%;
+    margin-left: 1%;
+    padding-left: 0.5%;
+    padding-top: 0.5%;
+    width: 50%;
     float: left;
     clear: none;
     font-size: 25px;
     color: white;
 }
-#inputs a:link {
+.inputs a:link {
     color: silver;
     text-decoration: underline;
 }
-#inputs a:visited {
+.inputs a:visited {
     color: silver;
     text-decoration: underline;
 }
-#inputs a:hover {
+.inputs a:hover {
     color: skyblue;
     text-decoration: underline;
 }
-#results
+.results
 {
     position: relative;
-    margin-left: 10px;
-    padding-left: 5px;
-    padding-top: 5px;
-    width: 17%;
+    margin-left: 1%;
+    padding-left: 0.5%;
+    padding-top: 0.5%;
+    width: 25%;
     float: left;
     clear: none;
     font-size: 25px;
     color: white;
 }
-#results a:link {
+.results a:link {
     color: silver;
     text-decoration: underline;
 }
-#results a:visited {
+.results a:visited {
     color: silver;
     text-decoration: underline;
 }
-#results a:hover {
+.results a:hover {
     color: skyblue;
     text-decoration: underline;
 }
 #map {
     width: 100%;
-    height: 430px;
+    height: 350px;
 }
 #map_container
 {
     position: relative;
-    margin-right: 10px;
-    padding-right: 5px;
-    padding-top: 5px;
-    width: 47%;
+    margin-right: 1%;
+    padding-right: 0.5%;
+    padding-top: 0.5%;
+    width: 48%;
     float: right;
     clear: none;
 }
 #map_container2
 {
     position: relative;
-    margin-right: 10px;
-    padding-right: 5px;
-    padding-top: 5px;
-    width: 77%;
+    margin-right: 1%;
+    padding-right: 0.5%;
+    padding-top: 0.5%;
+    width: 73%;
     float: right;
     clear: none;
 }

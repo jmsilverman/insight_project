@@ -38,20 +38,11 @@
     <script>
     var score = '{{score}}';
     var address = '{{address}}';
-    var code_used = '{{code_used}}';
     function checkScore() {
       if (score < 0) {
         alert("Sorry, I can't find the census tract for address " + address);
       }
     }
-    function codeUsedCheck() {
-      if (code_used === true) {
-        document.getElementById('ifCodeUsed').style.visibility = 'visible';
-        alert('true '+code_used);
-      } else {
-        document.getElementById('ifCodeUsed').style.visibility = 'hidden';
-        alert('false '+code_used);
-      }
     </script>
   </head>
 
@@ -86,24 +77,22 @@
     <br><br>
 
     <!-- Heading -->
-    <div>
+    <div class="heading">
       <h1>WhereSIOUS - San Diego, CA</h1>
       <h2>Where Should I Open Up Shop?</h2>
     </div>
 
-    <!-- Veritical Space -->
-    <div style="height:270px;"></div>
-
+    <img src="static/sd_panorama_pixabay.jpg">
     
-
     <!-- Resulting Text & Numbers -->
-    <div id="results">
+    <div class="results">
       <h2>The WhereSIOUS score for</h2>
       <h2 style="color:silver">{{address}}</h2>
       <!-- <div id="ifCodeUsed" style="visibility:hidden">
 	<h2>with Highest Level Business (NAICS) Code <span style="color:silver">{{naics_code_simple}}</span></h2>
       </div> -->
-      <h2>is <span style="color:silver">{{score}}</span> (out of 100).</h2>
+      <h2>is <span style="color:silver">{{score}}</span> (out of 100</h2>
+      <h2>and the average for</h2><h2>all of San Diego is {{mean}}).</h2>
     </div><!-- /.container -->
 
     

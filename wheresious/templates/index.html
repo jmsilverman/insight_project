@@ -67,32 +67,30 @@
     <br><br>
 
     <!-- Heading -->
-    <div>
+    <div class="heading">
       <h1>WhereSIOUS - San Diego, CA</h1>
       <h2>Where Should I Open Up Shop?</h2>
     </div>
 
-    <!-- Veritical Space -->
-    <div style="height:270px;"></div>
+    <img src="static/sd_panorama_pixabay.jpg">
 
     <!-- Inputs -->
-    <div id="inputs">
+    <div class="inputs">
       <br>
       <form method="GET">
         <b>Check This Address:</b><br>
-        <input type="text" id="address" style="width:650px;color:black" name="address" placeholder="2920 Zoo Dr, San Diego">
+        <input type="text" id="address" style="width:80%;color:black" name="address" autocomplete="off" value="10051 Old Grove Rd, San Diego">
 	<button type="submit" formaction="one_address" class="btn btn-default btn-lg">Go!</button>
 
-	<br><br><br>
-        <button type="submit" formaction="all_city" class="btn btn-default btn-lg">See all of San Diego</button>
+	<br><br>
+        <b>Or See All of San Diego </b><button type="submit" formaction="all_city" class="btn btn-default btn-lg">Here!</button>
 
-        <br><br><br><br>
-        <b>Highest Level Business (<a
-        href="http://www.census.gov/cgi-bin/sssd/naics/naicsrch?chart=2012" target="_blank">NAICS</a>) Code:</b><br>
+        <br><br>
+        <b>Highest Level Business (<a href="http://www.census.gov/cgi-bin/sssd/naics/naicsrch?chart=2012" target="_blank">NAICS</a>) Code:</b><br>
         <select id="code" name="naics_code_simple">
-	  <option value=all>All Business Types</option>
+	  <!-- <option value=all>All Business Types</option> -->
 	  <option value=11>11 - Agriculture, Forestry, Fishing and Hunting</option>
-	  <option value=21>21 - Mining, Quarrying, and Oil and Gas Extraction</option>
+	  <!-- <option value=21>21 - Mining, Quarrying, and Oil and Gas Extraction</option> -->
 	  <option value=22>22 - Utilities</option>
 	  <option value=23>23 - Construction</option>
 	  <option value=31>31 - Manufacturing</option>
@@ -136,7 +134,7 @@
       </script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrLytmccXVaAmXCQFXVUOyHVPzREMxpFY&callback=initMap" async defer></script>
     </div>
-
+   
 
     
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>

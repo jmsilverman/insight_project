@@ -67,20 +67,18 @@
     <br><br>
 
     <!-- Heading -->
-    <div>
+    <div class="heading">
       <h1>WhereSIOUS - San Diego, CA</h1>
       <h2>Where Should I Open Up Shop?</h2>
     </div>
 
-    <!-- Veritical Space -->
-    <div style="height:270px;"></div>
-
-    
+    <img src="static/sd_panorama_pixabay.jpg">
 
     <!-- Resulting Text & Numbers -->
-    <div id="results">
-	<h1>Business: {{naics_code_simple}}</h1>
-	<h1>Score Map: {{score_map}}</h1>
+    <div class="results">
+      <br>
+      <h1>Highest Level Business (<a href="http://www.census.gov/cgi-bin/sssd/naics/naicsrch?chart=2012" target="_blank">NAICS</a>) Code:</b><br>
+      <h1>{{naics_code_simple}} - {{description}}</h1>
     </div><!-- /.container -->
 
     

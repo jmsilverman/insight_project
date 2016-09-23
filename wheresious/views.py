@@ -18,6 +18,14 @@ def home():
 
 
 # define about page
+@app.route('/test')
+def test():
+    # render page
+    return render_template("test.html")
+
+
+
+# define about page
 @app.route('/about')
 def about():
     # render page

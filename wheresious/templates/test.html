@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Page metadata -->
+    <meta name="WhereSIOUS Search for Entire City" content="">
+    <meta name="Jeffrey M. Silverman" content="">
+
+    <!-- Page icons -->
+    <link rel="shortcut icon" href="../static/favicon.ico"> 
+    <link rel="icon" href="../static/favicon.ico"> 
+
+    <!-- Title of webpage -->
+    <title>WhereSIOUS - Full City Search</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="starter-template.css" rel="stylesheet"> -->
+    <link href="../static/wheresious.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+
+
+  <body>
+      
+    <!-- Google map -->
+    <div>
+      <div id="map" style="height: 800px;"></div>
+        <script>
+          var scoreOverlay;
+          var code = '{{naics_code_simple}}';
+      
+          function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 32.7157, lng: -117.1611},
+            zoom: 13,
+            styles: [
+              {
+                featureType: 'poi',
+                elementType: 'geometry',
+                stylers: [{color: '#eeeeee'}]
+              },
+              {
+                featureType: 'poi.park',
+                elementType: 'geometry',
+                stylers: [{color: '#ffffff'}]
+              }
+            ]
+          });
+      
+          var imageBounds = {
+            north: 33.373871998763718+.012,
+            south: 32.534773800885112-.032,
+            east: -116.10574261202862+.015,
+            west: -117.28229466064629-.0678
+          };
+
+          scoreOverlay = new google.maps.GroundOverlay('../static/map_44.png', imageBounds);
+          scoreOverlay.setMap(map);
+        }
+      </script>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrLytmccXVaAmXCQFXVUOyHVPzREMxpFY&callback=initMap"></script>
+    </div>
+
+    
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+  </body>
+</html>

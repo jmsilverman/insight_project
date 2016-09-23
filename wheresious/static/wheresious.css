@@ -15,7 +15,7 @@ body {
     margin-left: 1%;
     padding-left: 0.5%;
     padding-top: 0.5%;
-    width: 50%;
+    width: 48.5%;
     float: left;
     clear: none;
     font-size: 25px;
@@ -37,9 +37,9 @@ body {
 {
     position: relative;
     margin-left: 1%;
-    padding-left: 0.5%;
-    padding-top: 0.5%;
-    width: 25%;
+    padding-left: 1%;
+    padding-top: 1%;
+    width: 27%;
     float: left;
     clear: none;
     font-size: 25px;
@@ -67,17 +67,18 @@ body {
     margin-right: 1%;
     padding-right: 0.5%;
     padding-top: 0.5%;
-    width: 48%;
+    width: 48.5%;
     float: right;
     clear: none;
 }
 #map_container2
 {
     position: relative;
-    margin-right: 1%;
+    margin-right: 0.5%;
     padding-right: 0.5%;
     padding-top: 0.5%;
-    width: 73%;
+    margin-top: -16.2%;
+    width: 71%;
     float: right;
     clear: none;
 }

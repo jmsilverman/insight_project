@@ -50,14 +50,19 @@ def single_lookup():
     # get score for this address and code
     score = one_score(address,naics_code_simple)
 
-    # read in dataframe of tracts, codes, and scores
-    df_scores = pd.read_csv('/Users/jsilverman/insight/project/wheresious/static/tracts_codes_scores.csv',index_col=0)
-
-    # get average overall score for SD
+    # read in dataframe of tracts and scores for this code
+    if naics_code_simple != 'all':
+        df_scores = pd.read_csv('/Users/jsilverman/insight/project/wheresious/static/tracts_scores_'+naics_code_simple+'.csv',index_col=0)
+        blurb = 'Only businesses with Highest Level Business (NAICS) Code '+naics_code_simple+' were used to predict this score.'
+    else:
+        df_scores = pd.read_csv('/Users/jsilverman/insight/project/wheresious/static/tracts_scores.csv',index_col=0)
+        blurb = 'All businesses were used to predict this score.'
+        
+    # get average overall score for SD for this code
     mean_score = int(float(np.mean(df_scores.score)))
     
     # render page
-    return render_template("one_address.html", address = address, naics_code_simple = naics_code_simple, score = score, mean = mean_score)
+    return render_template("one_address.html", address = address, naics_code_simple = naics_code_simple, score = score, mean = mean_score, code_blurb = blurb)
 
 
 
@@ -67,54 +72,24 @@ def full_city_lookup():
     # pull input field and store it
     naics_code_simple = request.args.get('naics_code_simple')
 
-    if naics_code_simple=='11':
-        description = 'Agriculture, Forestry, Fishing and Hunting'
-    elif naics_code_simple=='22':
-        description = 'Utilities'
-    elif naics_code_simple=='23':
-        description = 'Construction'
-    elif naics_code_simple=='31':
-        description = 'Manufacturing'
-    elif naics_code_simple=='32':
-        description = 'Manufacturing'
-    elif naics_code_simple=='33':
-        description = 'Manufacturing'
-    elif naics_code_simple=='42':
-        description = 'Wholesale Trade'
-    elif naics_code_simple=='44':
-        description = 'Retail Trade'
+    if naics_code_simple=='44':
+        description = 'Highest Level Business (NAICS) Code: 44 - Retail Trade'
     elif naics_code_simple=='45':
-        description = 'Retail Trade'
-    elif naics_code_simple=='48':
-        description = 'Transportation and Warehousing'
-    elif naics_code_simple=='49':
-        description = 'Transportation and Warehousing'
-    elif naics_code_simple=='51':
-        description = 'Information'
-    elif naics_code_simple=='52':
-        description = 'Finance and Insurance'
+        description = 'Highest Level Business (NAICS) Code: 45 - Retail Trade'
     elif naics_code_simple=='53':
-        description = 'Real Estate and Rental and Leasing'
+        description = 'Highest Level Business (NAICS) Code: 53 - Real Estate and Rental and Leasing'
     elif naics_code_simple=='54':
-        description = 'Professional, Scientific, and Technical Services'
-    elif naics_code_simple=='55':
-        description = 'Management of Companies and Enterprises'
+        description = 'Highest Level Business (NAICS) Code: 54 - Professional, Scientific, and Technical Services'
     elif naics_code_simple=='56':
-        description = 'Administrative and Support and Waste Management and Remediation Services'
-    elif naics_code_simple=='61':
-        description = 'Educational Services'
+        description = 'Highest Level Business (NAICS) Code: 56 - Administrative and Support and Waste Management and Remediation Services'
     elif naics_code_simple=='62':
-        description = 'Health Care and Social Assistance'
-    elif naics_code_simple=='71':
-        description = 'Arts, Entertainment, and Recreation'
+        description = 'Highest Level Business (NAICS) Code: 62 - Health Care and Social Assistance'
     elif naics_code_simple=='72':
-        description = 'Accommodation and Food Services'
+        description = 'Highest Level Business (NAICS) Code: 72 - Accommodation and Food Services'
     elif naics_code_simple=='81':
-        description = 'Other Services (except Public Administration)'
-    elif naics_code_simple=='92':
-        description = 'Public Administration'
+        description = 'Highest Level Business (NAICS) Code: 81 - Other Services (except Public Administration)'
     else:
-        description = 'Something went wrong with the NAICS code...'
+        description = 'All Businesses'
         
     # render page
     return render_template("all_city.html", naics_code_simple = naics_code_simple, description = description)

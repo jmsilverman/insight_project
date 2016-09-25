@@ -50,10 +50,13 @@ def one_score(address,naics_code_simple):
         tract = float(address_info[0]['geographies']['Census Tracts'][0]['TRACT'])
 
         # read in dataframe of tracts, codes, and scores
-        df_scores = pd.read_csv('/Users/jsilverman/insight/project/wheresious/static/tracts_codes_scores.csv',index_col=0)
+        if naics_code_simple != 'all':
+            df_scores = pd.read_csv('/Users/jsilverman/insight/project/wheresious/static/tracts_scores_'+naics_code_simple+'.csv',index_col=0)
+        else:
+            df_scores = pd.read_csv('/Users/jsilverman/insight/project/wheresious/static/tracts_scores.csv',index_col=0)
 
         # get correct row of dataframe
-        score_row = df_scores[(df_scores.census_tract==tract) & (df_scores.code_simple==int(naics_code_simple))].score
+        score_row = df_scores[df_scores.census_tract==tract].score
 
         # return actual score
         return int(round(score_row.values[0]))

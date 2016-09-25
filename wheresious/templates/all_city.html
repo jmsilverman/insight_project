@@ -79,7 +79,9 @@
       <br>
       <h2>WhereSIOUS scores for <a href="http://www.census.gov/cgi-bin/sssd/naics/naicsrch?chart=2012" target="_blank">NAICS</a> Business Code:</b><br>
       <h2>{{naics_code_simple}} - {{description}}</h2>
-      <h2>(darker green are higher scores)
+      <br>
+      <h2>Darker green are higher scores</h2>
+      <img src="static/colorbar.png" width="100%">
     </div><!-- /.container -->
 
     
@@ -89,13 +91,23 @@
       <div id="map" style="height: 680px;"></div>
         <script>
           var scoreOverlay;
+          var map;
           var code = '{{naics_code_simple}}';
       
           function initMap() {
-            var map = new google.maps.Map(document.getElementById('map'), {
+            map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 32.7157, lng: -117.1611},
             zoom: 13,
             styles: [
+              {
+                elementType: 'geometry',
+                stylers: [{color: '#ffffff'}]
+              },
+              {
+                featureType: 'road',
+                elementType: 'geometry',
+                stylers: [{color: '#eeeeee'}]
+              },
               {
                 featureType: 'poi',
                 elementType: 'geometry',
@@ -104,7 +116,12 @@
               {
                 featureType: 'poi.park',
                 elementType: 'geometry',
-                stylers: [{color: '#ffffff'}]
+                stylers: [{color: '#eeeeee'}]
+              },
+              {
+                featureType: 'water',
+                elementType: 'geometry',
+                stylers: [{color: '#A3CCFF'}]
               }
             ]
           });

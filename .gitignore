@@ -8,6 +8,10 @@ proj_description
 proj_notes
 
 
+# old demo presentations
+demos/
+
+
 # flask tutorial example
 flask_example/
 
